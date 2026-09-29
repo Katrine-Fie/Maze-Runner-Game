@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Zombie Labyrinth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game-wrapper">
+      <header class="game-header">
+        <h1 class="title">Zombie Labyrinth</h1>
+        <p class="subtitle">
+          Use the arrow keys to move. Space to drop bombs, C to use chainsaw. Reach the
+          exit, dodge zombies, and grab tools!
+        </p>
+      </header>
+
+      <aside class="help-panel">
+        <h2 class="help-title">How to Play</h2>
+        <ul class="help-list">
+          <li>Arrow keys to move your hero.</li>
+          <li>Spacebar to drop a bomb.</li>
+          <li>Green zombies: regular enemies.</li>
+          <li>Black zombies: worth extra points.</li>
+          <li>Running shoes make you faster for a short time.</li>
+          <li>Chainsaw: collect 🪚 to add to inventory. Press <strong>C</strong> to activate—10s invincibility, destroy zombies for double points!</li>
+        </ul>
+      </aside>
+
+      <div class="game-inventory">
+        <div class="hud">
+          <div class="hud-group">
+            <span class="hud-label">Score</span>
+            <span id="score" class="hud-value">0</span>
+          </div>
+          <div class="hud-group">
+            <span class="hud-label">Level</span>
+            <span id="level" class="hud-value">1</span>
+          </div>
+          <div class="hud-group">
+            <span class="hud-label">Coins</span>
+            <span id="checkpoint" class="hud-value">0</span>
+          </div>
+          <div class="hud-group">
+            <span class="hud-label">Lives</span>
+            <span id="lives" class="hud-value">❤️❤️❤️</span>
+          </div>
+          <div class="hud-group">
+            <span class="hud-label">Bombs</span>
+            <span id="bomb-count" class="hud-value">0</span>
+          </div>
+          <div class="hud-group">
+            <span class="hud-label">Chainsaw</span>
+            <span id="chainsaw-inventory" class="hud-value">🪚 ×0</span>
+          </div>
+          <div class="hud-group">
+            <span class="hud-label">Chainsaw time</span>
+            <span id="chainsaw-timer" class="hud-value">-</span>
+          </div>
+        </div>
+      </div>
+
+      <main class="game-main">
+        <div class="canvas-shell">
+          <canvas id="game-canvas" width="800" height="480"></canvas>
+          <div id="overlay-start" class="overlay visible">
+            <div class="overlay-title">Zombie Labyrinth</div>
+            <p class="overlay-text">
+              Move with the arrow keys. Press Space to drop bombs. Avoid the
+              zombies, grab tools, and find the exit!
+            </p>
+            <button id="start-button" class="btn-primary" type="button">
+              Press Enter or Click to Start
+            </button>
+          </div>
+          <div id="overlay-gameover" class="overlay">
+            <div class="overlay-title">Game Over</div>
+            <p class="overlay-text">
+              The zombies caught you. Want to try again?
+            </p>
+            <button id="restart-button" class="btn-primary" type="button">
+              Restart
+            </button>
+            <button id="reset-progress-button" class="btn-primary" type="button">
+              Reset to Level 0
+            </button>
+          </div>
+          <div id="overlay-level" class="overlay overlay-small">
+            <div class="overlay-title">New Level</div>
+            <p class="overlay-text">Brace yourself for a new labyrinth!</p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="game-footer">
+        <span id="message" class="message"></span>
+      </footer>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
